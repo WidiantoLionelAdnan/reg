@@ -44,7 +44,27 @@ namespace RegisztracioAlkalmazas
                 {
                     return;
                 }
-                string FileName = saveFileDialog1.FileName;
+
+                string fileNev = saveFileDialog1.FileName;
+
+                using (var writer = File.CreateText(fileNev))
+                {
+                  
+                    
+                }
+
+                
+                using (var reader = File.OpenText(fileNev))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+
+                    }
+                }
+
+
+
             };
         }
 
@@ -58,13 +78,13 @@ namespace RegisztracioAlkalmazas
 
         private string Beolvasas()
         {
-            string FileName = nameTextBox.Text;
-            if (string.IsNullOrWhiteSpace(FileName))
+            string FileNev = nameTextBox.Text;
+            if (string.IsNullOrWhiteSpace(FileNev))
             {
                 
                 throw new Exception("A fájlnév üres");
             }
-            return File.ReadAllText(FileName);
+            return File.ReadAllText(FileNev);
         }
     }
 }
